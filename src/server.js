@@ -54,8 +54,8 @@ app.get('/:id', (request, response, next) => {
 
 app.use(st({
 	content: { 
-        maxAge: config.staticMaxAge 
-    },
+            maxAge: config.staticMaxAge 
+        },
 	path: path.join(__dirname, 'static', config.app.theme),
 	index: 'index.html'
 }));
