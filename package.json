@@ -1,0 +1,16 @@
+{
+  "name": "mint-server",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js | ./node_modules/.bin/bunyan -o short"
+  },
+  "private": true,
+  "dependencies": {
+    "bunyan": "^1.8.15",
+    "busboy": "^0.3.1",
+    "express": "^4.17.1",
+    "st": "^2.0.0"
+  }
+}

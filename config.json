@@ -1,0 +1,27 @@
+{
+    "app": {
+        "url": "https://code.kream.xyz",
+        "theme": "default"
+    },
+    "http": {
+        "port": 8050
+    },
+    "server": {
+        "enabled": true,
+        "port": 8040
+    },
+    "maxLength": 400000,
+    "staticMaxAge": 86400,
+    "keyGenerator": {
+        "type": "random",
+        "keyLength": 10,
+        "charsSet": "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    },
+    "storage": {
+        "type": "file",
+        "path": "./data"
+    },
+    "documents": {
+        "about": "about.md"
+    }
+}
