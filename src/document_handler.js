@@ -8,7 +8,6 @@ class documentHandler {
         this.store = options.store;
         this.keyGenerator = options.keyGenerator;
         this.maxLength = options.maxLength;
-        this.keyLength = options.keyLength;
     }
 
     handleSocket(socket, data) {
