@@ -5,6 +5,13 @@ A fork of [hastebin](https://github.com/seejohnrun/haste-server), which focuses 
 - Code highlighting
 - Netcat support 
 
+## Command-line (client)
+### netcat
+This only available for Mint instance that have `config.server` enabled.
+```
+echo "Hello world!" | nc <instance_host> <instance_port>
+```
+
 ## Installation
 1. Git clone the repository.
 ```bash
