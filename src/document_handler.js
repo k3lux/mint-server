@@ -32,7 +32,6 @@ class documentHandler {
 
                 socket.destroy();
             }).catch(error => {
-                console.log(error);
                 logger.error('internal error occurred.');
                 socket.destroy();
             });
