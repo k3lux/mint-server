@@ -69,14 +69,28 @@ if (config.server.enabled) {
     const server = net.createServer(socket => {
         var i = 0;
 
+        logger.info({address: socket.remoteAddress, port: socket.remotePort}, 'incoming connection.');
+
+        socket.setEncoding('utf8');
+
+        socket.setTimeout(config.server.timeout, function() {
+            logger.info({address: socket.remoteAddress, port: socket.remotePort}, 'connection timeout.');
+            socket.destroy();
+        });
+
         socket.on('data', (data) => {
-            data = data.toString('utf8');
             i++;
             if (i == 1) {
                 return documentHandler.handleSocket(socket, data);
             }
         });
+
+        socket.on('close', (data) => {
+            logger.info({address: socket.remoteAddress, port: socket.remotePort}, 'connection closed.');
+        });
     });
+
+    server.maxConnections = config.server.maxConnections;
 
     server.listen(config.server.port, () => {
         logger.info({port: config.server.port}, 'server listening.');

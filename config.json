@@ -8,7 +8,9 @@
     },
     "server": {
         "enabled": true,
-        "port": 8040
+        "port": 8040,
+        "timeout": 10000,
+        "maxConnections": 10
     },
     "maxLength": 400000,
     "staticMaxAge": 86400,

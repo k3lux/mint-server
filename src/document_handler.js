@@ -27,11 +27,12 @@ class documentHandler {
         this.keyGenerator.create().then(key => {
             this.store.save(key, data).then(() => {
                 logger.info({key: key}, 'added document.');
-                socket.write(`${config.app.url}/${key}`);
+                socket.write(`${config.app.url}/${key}\n`);
                 socket.pipe(socket);
 
                 socket.destroy();
             }).catch(error => {
+                console.log(error);
                 logger.error('internal error occurred.');
                 socket.destroy();
             });
