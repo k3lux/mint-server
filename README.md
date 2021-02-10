@@ -1,6 +1,10 @@
 # Mint
 A fork of [hastebin](https://github.com/seejohnrun/haste-server), which focuses on security, and stability.
 
+# Features
+- Code highlighting
+- Netcat support 
+
 ## Installation
 1. Git clone the repository.
 ```bash
