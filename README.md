@@ -21,10 +21,20 @@ yarn
 
 ## Endpoint
 ### `POST` `/documents`
-#### Response
 ```
 {
-   key: 00000
+   "key": 00000
 }
+```
+### `GET` `/documents/:id`
+```
+{
+   "key": 00000,
+   "data": "Hello world!"
+}
+```
+### `GET` `/raw/:id`
+```
+Hello world!
 ```
 
