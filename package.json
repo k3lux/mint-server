@@ -4,7 +4,8 @@
   "main": "src/server.js",
   "license": "MIT",
   "scripts": {
-    "start": "node src/server.js | ./node_modules/.bin/bunyan -o short"
+    "start": "node src/server.js | ./node_modules/.bin/bunyan -o short",
+    "show:logs": "cat mint-server.log | ./node_modules/.bin/bunyan -o short"
   },
   "private": true,
   "dependencies": {
