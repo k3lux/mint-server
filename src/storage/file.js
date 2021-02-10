@@ -13,6 +13,7 @@ class FileStorage {
             logger.info({path: this.basePath}, 'creating storage directory.');
             fs.promises.mkdir(this.basePath, { mode: 700 }).catch(error => {
                 logger.fatal('failed to create storage directory.');
+                process.exit();
             });
         }
         
