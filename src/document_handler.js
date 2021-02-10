@@ -12,7 +12,7 @@ class documentHandler {
     }
 
     handleSocket(socket, data) {
-        if (socket.bytesRead == 1) {
+        if ((socket.bytesRead == 1) || (socket.bytesRead == 2)) {
             logger.info('document without content was sent.');
             socket.destroy();
             return;

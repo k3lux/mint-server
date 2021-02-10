@@ -1,5 +1,6 @@
 const express = require('express');
 const st = require('st');
+
 const fs = require('fs');
 const path = require('path');
 const net = require('net');
@@ -53,9 +54,9 @@ app.get('/:id', (request, response, next) => {
 });
 
 app.use(st({
-	content: { 
-            maxAge: config.staticMaxAge 
-        },
+    content: { 
+        maxAge: config.staticMaxAge 
+    },
 	path: path.join(__dirname, 'static', config.app.theme),
 	index: 'index.html'
 }));

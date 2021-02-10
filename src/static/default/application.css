@@ -77,18 +77,6 @@ textarea {
 	cursor: pointer;
 }
 
-#pointer {
-	display: block;
-	height: 5px;
-	width: 10px;
-	background: url(hover-dropdown-tip.png);
-	bottom: 0px;
-	position: absolute;
-	margin: auto;
-	left: 0px;
-	right: 0px;
-}
-
 #box3, #messages li {
 	background: #1f1f1f;
 	font-family: Helvetica, sans-serif;
