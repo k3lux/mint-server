@@ -1,7 +1,7 @@
 # Mint
 A fork of [hastebin](https://github.com/seejohnrun/haste-server), which focuses on security, and stability.
 
-# Features
+## Features
 - Code highlighting
 - Netcat support 
 
@@ -11,10 +11,20 @@ A fork of [hastebin](https://github.com/seejohnrun/haste-server), which focuses 
 git clone https://github.com/xcgc/mint-server.git
 ```
 2. Edit `config.json` to what you like.
-3. Install required packages.
+3. Install required dependencies.
 ```bash
 # NPM
 npm install
 # Yarn
 yarn
 ```
+
+## Endpoint
+### `POST` `/documents`
+#### Response
+```
+{
+   key: 00000
+}
+```
+
