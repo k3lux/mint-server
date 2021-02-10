@@ -7,7 +7,7 @@ A fork of [hastebin](https://github.com/seejohnrun/haste-server), which focuses 
 
 ## Command-line (client)
 ### netcat
-This is only available for Mint instance that have `config.server.enabled` set to` true`.
+This is only available for Mint instance that have `config.server.enabled` set to `true`.
 ```bash
 echo "Hello world!" | nc <instance_host> <instance_port>
 ```
@@ -33,14 +33,14 @@ yarn
    "key": 00000
 }
 ```
-### `GET` `/documents/:id`
+### `GET` `/documents/:key`
 ```
 {
    "key": 00000,
    "data": "Hello world!"
 }
 ```
-### `GET` `/raw/:id`
+### `GET` `/raw/:key`
 ```
 Hello world!
 ```
