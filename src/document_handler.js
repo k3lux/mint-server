@@ -39,7 +39,7 @@ class documentHandler {
     }
 
     handlePost(request, response) {
-        const _this = this;
+        var _this = this;
         var buffer = '';
         var cancelled = false;
 
