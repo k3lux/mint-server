@@ -112,31 +112,6 @@ class documentHandler {
         }
     }
 
-    handleRaw(request, response) {
-        const key = request.params.id.split('.')[0];
-
-        if (!/^[a-zA-Z0-9]+$/.test(key)) {
-            logger.info({key: key}, 'document not found.');
-            response.status(404).json({
-                message: "Document not found."
-            });
-            return;
-        }
-
-        this.store.get(key).then(data => {
-            logger.info({key: key}, 'retrieved document.');
-            response.writeHead(200, {
-                "Content-Type": "text/plain; charset=utf-8"
-            });
-            response.end(data);
-        }).catch(() => {
-            logger.info({key: key}, 'document not found.');
-            response.status(404).json({
-                message: "Document not found."
-            });
-        });
-    }
-
     handleGet(request, response) {
         const key = request.params.id.split('.')[0];
         
@@ -155,6 +130,31 @@ class documentHandler {
                 data: data
             });
         }).catch(error => {
+            logger.info({key: key}, 'document not found.');
+            response.status(404).json({
+                message: "Document not found."
+            });
+        });
+    }
+
+    handleRaw(request, response) {
+        const key = request.params.id.split('.')[0];
+
+        if (!/^[a-zA-Z0-9]+$/.test(key)) {
+            logger.info({key: key}, 'document not found.');
+            response.status(404).json({
+                message: "Document not found."
+            });
+            return;
+        }
+
+        this.store.get(key).then(data => {
+            logger.info({key: key}, 'retrieved document.');
+            response.writeHead(200, {
+                "Content-Type": "text/plain; charset=utf-8"
+            });
+            response.end(data);
+        }).catch(() => {
             logger.info({key: key}, 'document not found.');
             response.status(404).json({
                 message: "Document not found."

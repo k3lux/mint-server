@@ -34,12 +34,12 @@ app.post('/documents', (request, response) => {
     return documentHandler.handlePost(request, response);
 });
 
-app.get('/raw/:id', (request, response) => {
-    return documentHandler.handleRaw(request, response);
-});
-
 app.get('/documents/:id', (request, response) => {
     return documentHandler.handleGet(request, response);
+});
+
+app.get('/raw/:id', (request, response) => {
+    return documentHandler.handleRaw(request, response);
 });
 
 app.use(st({
@@ -57,8 +57,8 @@ app.use(st({
     content: { 
         maxAge: config.staticMaxAge 
     },
-	path: path.join(__dirname, 'static', config.app.theme),
-	index: 'index.html'
+    path: path.join(__dirname, 'static', config.app.theme),
+    index: 'index.html'
 }));
 
 app.listen(config.http.port, () => {
