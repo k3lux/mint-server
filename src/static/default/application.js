@@ -115,17 +115,17 @@ class App {
     }
 
     lightKey() {
-        this.configureKey(['new', 'save']);
+        this.configureKey(['new', 'save', 'github', 'about']);
     }
 
     fullKey() {
-        this.configureKey(['new', 'duplicate', 'raw']);
+        this.configureKey(['new', 'duplicate', 'raw', 'github', 'about']);
     }
     
     configureKey(enable) {
         var $this, i = 0;
 
-        $('#box2 .function').each(function() {
+        $('#box1 .function').each(function() {
             $this = $(this);
             
             for (i = 0; i < enable.length; i++) {
@@ -238,7 +238,7 @@ class App {
 
         this.buttons = [
         {
-            $where: $('#box2 .save'),
+            $where: $('#box1 .save'),
             label: 'Save',
             shortcutDescription: 'control + s',
             shortcut: function(evt) {
@@ -251,7 +251,7 @@ class App {
             }
         },
         {
-            $where: $('#box2 .new'),
+            $where: $('#box1 .new'),
             label: 'New',
             shortcut: function(evt) {
                 return evt.ctrlKey && evt.keyCode === 78;
@@ -262,7 +262,7 @@ class App {
             }
         },
         {
-            $where: $('#box2 .duplicate'),
+            $where: $('#box1 .duplicate'),
             label: 'Duplicate & Edit',
             shortcut: function(evt) {
                 return _this.doc.locked && evt.ctrlKey && evt.keyCode === 68;
@@ -273,7 +273,7 @@ class App {
             }
         },
         {
-            $where: $('#box2 .raw'),
+            $where: $('#box1 .raw'),
             label: 'Raw',
             shortcut: function(evt) {
                 return evt.ctrlKey && evt.shiftKey && evt.keyCode === 82;
@@ -283,6 +283,28 @@ class App {
                 window.location.href = '/raw/' + _this.doc.key;
             }
         },
+        {
+            $where: $('#box1 .github'),
+            label: 'GitHub',
+            shortcut: function(evt) {
+                return evt.ctrlKey && evt.shiftKey && evt.keyCode === 71;
+            },
+            shortcutDescription: 'control + shift + g',
+            action: function() {
+                window.open('https://github.com/xcgc/mint-server');
+            }
+        },
+        {
+            $where: $('#box1 .about'),
+            label: 'About',
+            shortcut: function(evt) {
+                return evt.ctrlKey && evt.shiftKey && evt.keyCode === 65;
+            },
+            shortcutDescription: 'control + shift + a',
+            action: function() {
+                window.location.href = '/about.md';
+            }
+        }
         ];
         
         for (var i = 0; i < this.buttons.length; i++) {
@@ -300,14 +322,14 @@ class App {
         });
 
         options.$where.mouseenter(function() {
-            $('#box3 .label').text(options.label);
-            $('#box3 .shortcut').text(options.shortcutDescription || '');
-            $('#box3').show();
+            $('#box2 .label').text(options.label);
+            $('#box2 .shortcut').text(options.shortcutDescription || '');
+            $('#box2').show();
             $(this).append($('#pointer').remove().show());
         });
 
         options.$where.mouseleave(function() {
-            $('#box3').hide();
+            $('#box2').hide();
             $('#pointer').hide();
         });
     }
