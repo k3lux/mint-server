@@ -7,8 +7,8 @@ const net = require('net');
 
 const app = express();
 
-const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
 const logger = require('./logger');
+const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
 
 const store = new (require(`./storage/${config.storage.type}`))(config.storage);
 const keyGenerator = new (require(`./generators/${config.keyGenerator.type}`))(config.keyGenerator);
@@ -34,11 +34,11 @@ app.post('/documents', (request, response) => {
     return documentHandler.handlePost(request, response);
 });
 
-app.get('/documents/:id', (request, response) => {
+app.get('/documents/:key', (request, response) => {
     return documentHandler.handleGet(request, response);
 });
 
-app.get('/raw/:id', (request, response) => {
+app.get('/raw/:key', (request, response) => {
     return documentHandler.handleRaw(request, response);
 });
 
@@ -48,7 +48,7 @@ app.use(st({
 	index: false
 }));
 
-app.get('/:id', (request, response, next) => {
+app.get('/:key', (request, response, next) => {
     request.sturl = '/';
     next();
 });

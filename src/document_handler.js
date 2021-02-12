@@ -113,7 +113,7 @@ class documentHandler {
     }
 
     handleGet(request, response) {
-        const key = request.params.id.split('.')[0];
+        const key = request.params.key.split('.')[0];
         
         if (!/^[a-zA-Z0-9]+$/.test(key)) {
             logger.info({key: key}, 'document not found.');
@@ -138,7 +138,7 @@ class documentHandler {
     }
 
     handleRaw(request, response) {
-        const key = request.params.id.split('.')[0];
+        const key = request.params.key.split('.')[0];
 
         if (!/^[a-zA-Z0-9]+$/.test(key)) {
             logger.info({key: key}, 'document not found.');
